@@ -10,43 +10,92 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster|Raleway:300,400">
   </head>
   <body>
-    <section class="background">
-        <div class="air-slider">
-          <div class="slide">
-            <img src="img/img1.jpg" alt="slide1"/>
-          </div>
-          <div class="slide">
-            <img src="img/img9.jpg" alt="slide2"/>
-          </div>
-          <div class="slide">
-            <img src="img/img8.jpg" alt="slide3"/>
-          </div>
-        </div>
-      </section>
     <header>
       <div>
         <ul>
           <li>Take A Hike</li>
-          <li><a href="about-us.html">About Us</a></li>
-          <li><a href="find-hike.html">Find A Hike</a></li>
-          <li><a href="index.html">Home</a></li>
+          <li><a href="/findahike">Find A Hike</a></li>
+          <li><a href="/">Home</a></li>
         </ul>
       </div>
     </header>
     <main>
-      <div class="main-body">
-        <div class="column-1"></div>
-        <div class="transparent-div">
-          <p>Search for hikes based on your preferences:</p>
-          <a href="find-hike.html"><button id="main-button">Find A Hike</button></a>
+      <section id="index">
+        <div class="main-body">
+          <div class="column-1"></div>
+            <div class="transparent-div">
+              <p>Search for hikes based on your preferences:</p>
+              <a href="/findahike"><button id="main-button">Find A Hike</button></a>
+            </div>
+          <div class="column-2"></div>
+        </div>      
+      </section>
+
+      <section id="find-hike">
+        <div class="find-hike-div">
+          <form id="find-hike">
+            <fieldset>
+              <label for="length">Hike Length</label>
+              <input type="radio" name="length" value="1" required><span>0 - 5 miles</span>
+              <input type="radio" name="length" value="2" required><span>5 - 10 miles</span>
+              <input type="radio" name="length" value="3" required><span>10 - 15 miles</span>
+              <input type="radio" name="length" value="4" required><span>15 - 20 miles</span>
+              <input type="radio" name="length" value="5" required><span>20+ miles</span>
+            </fieldset>
+            <fieldset>
+              <label for="elevation">Elevation Gain</label>
+              <input type="radio" name="elevation" value="1" required><span>Under 1000 ft.</span>
+              <input type="radio" name="elevation" value="2" required><span>1000 - 2000 ft.</span>
+              <input type="radio" name="elevation" value="3" required><span>2000 - 3000 ft.</span>
+              <input type="radio" name="elevation" value="4" required><span>3000 - 4000 ft.</span>
+              <input type="radio" name="elevation" value="5" required><span>4000+ ft.</span>
+            </fieldset>
+            <fieldset>
+              <label for="distance">Driving Distance</label>
+              <input type="radio" name="distance" value="1" required><span>0-25 miles</span>
+              <input type="radio" name="distance" value="2" required><span>25-50 miles</span>
+              <input type="radio" name="distance" value="3" required><span>50-100 miles</span>
+              <input type="radio" name="distance" value="4" required><span>100-150 miles</span>
+              <input type="radio" name="distance" value="5" required><span>150+ miles</span>
+            </fieldset>
+            <button type="submit" id="submit-btn">Find a Hike</button>
+          </form>
         </div>
-        <div class="column-2"></div>
-      </div>
+      </section>
+
+      <section id="hike-results">
+        <div id="main">
+          <div id="main-hike">
+            <!-- <img src="" id="random-image" alt="Best Rated Hike"> -->
+              <div class="transparent-box">
+                <div class="main-hike-text">
+                  <h1 id="main-hike-header">Your Best Match:</h1>
+                  <ul id="main-hike-ul"></ul>
+                </div>
+              </div>
+          </div>
+            <div id="list-hike">
+              <div class="transparent-box2">
+                <h2 id="list-hike-header">Other hikes that match your criteria:</h2>
+                <ul id="list-hike-ul">
+                </ul>
+              </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="no-results">
+        <h2 id="message">No hikes met your search criteria</h2>
+        <a href="/findahike" class="button-message">Search Again</a>    
+      </section>
     </main>
-    <script src="data.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
+    <script src="scripts/model/hikes.js"></script>
     <script src="scripts/model/app.js"></script>
-    <script src="vendor/air-slider.min.js"></script>
-    <script src="slider.js"></script>
+    <script src="scripts/views/indexView.js"></script>
+    <script src="scripts/views/findHikeView.js"></script>
+    <script src="scripts/views/hikeResultsView.js"></script>
     <script src="scripts/controller/routes.js"></script>
   </body>
 </html>

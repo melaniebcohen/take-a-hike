@@ -3,8 +3,9 @@
 (function (module){
   let hikeData = {};
   
-  let allHikes = JSON.parse(hikes);
-  let $form = $('#find-hike');
+  // TO DO: parse JSON object, instantiate all hikes?
+  let allHikes = JSON.parse('/hikes.json');
+  console.log(allHikes[2])
 
   let codeFellowsLat = 47.618248;
   let codeFellowsLng = -122.351871;
@@ -92,6 +93,7 @@
   }
 
   hikeData.lengthPreference = value => {
+    console.log('Length preference:',value)
     if (value === 1) {
       for(var i = 0; i < allHikes.length; i++) {
         var hikeLength = parseInt(allHikes[i].length);
@@ -238,16 +240,6 @@
       return obj2.rating - obj1.rating;
     });
     console.log(sortedHikesArr);
-  }
-
-  /* ADD sortedHikesArr TO LOCAL STORAGE */
-  function save() {
-    localStorage.sortedHikesArr = JSON.stringify(sortedHikesArr);
-  }
-
-  // load array of hikes from local storage
-  function load() {
-    sortedHikesArr = JSON.parse(localStorage.sortedHikesArr);
   }
 
   /* DISPLAY RESULTS ON HIKE-RESULTS.HTML */

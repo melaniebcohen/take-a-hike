@@ -13,8 +13,8 @@
       e.preventDefault();
 
       let lengthPref = e.target.length.value;
-      let elevPref = e.target.length.value;
-      let distPref = e.target.length.value;
+      let elevPref = e.target.elevation.value;
+      let distPref = e.target.distance.value;
 
       console.log(lengthPref, elevPref, distPref)
 

@@ -1,4 +1,4 @@
-var hikes = JSON.stringify([{
+let hikes = JSON.stringify([{
   "rating": "0.0",
   "length": "14.0",
   "kml": "",

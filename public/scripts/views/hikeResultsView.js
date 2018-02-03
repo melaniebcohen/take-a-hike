@@ -1,11 +1,17 @@
 'use strict';
 
 (function (module){
-  let hikeResults = {};
+  let hikeResultsView = {};
 
+  hikeResultsView.init = (ctx, next) => {
+    $('#no-results').hide()
+    $('#index').hide();
+    $('#find-hike').hide();
+    $('#hike-results').show();
 
+    next();
+  }
 
-
-  module.hikeResults = hikeResults;
+  module.hikeResultsView = hikeResultsView;
 
 })(window);

@@ -16,9 +16,9 @@
       let elevPref = e.target.elevation.value;
       let distPref = e.target.distance.value;
 
-      console.log(lengthPref, elevPref, distPref)
+      window.hikeData.sortHikes(JSON.parse(lengthPref), JSON.parse(elevPref), JSON.parse(distPref));
 
-      window.hikeData.sortHikes(lengthPref, elevPref, distPref);
+      window.hikeResultsView.init();
     })
   }
 

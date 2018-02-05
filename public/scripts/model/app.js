@@ -2,21 +2,18 @@
 
 (function (module){
   let hikeData = {};
-  
-  // TO DO: parse JSON object, instantiate all hikes?
-  let allHikes = JSON.parse('/hikes.json');
-  console.log(allHikes[2])
+  let allHikes = JSON.parse(hikes);
 
   let codeFellowsLat = 47.618248;
   let codeFellowsLng = -122.351871;
   let currentLocationLat;
   let currentLocationLng;
 
-  Image.allImages = [];
-
   let lengthPrefArr = [];
   let elevGainPrefArr = [];
   let sortedHikesArr = [];
+
+  Image.allImages = [];
 
   function Image(filepath) {
     this.filepath = filepath;
@@ -47,8 +44,13 @@
     displayImage.setAttribute('src', 'img/' + chosenImg.filepath);
   }
 
+  function renderBGImage() {
+    document.getElementById('hike-results').style.backgroundImage = 'url(img/' + chosenImg.filepath + ')';
+    document.getElementById('hike-results').style.width = '100%';
+  }
+
   //from https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/Using_geolocation
-  function getLocation() {
+  hikeData.getLocation = () => {
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition(function(position) {
         currentLocationLat = position.coords.latitude;
@@ -86,10 +88,16 @@
 
   /* SORTING FUNCTIONS */
   hikeData.sortHikes = (length, elevation, distance) => {
-    console.log(length, elevation, distance)
     hikeData.lengthPreference(length);
     hikeData.elevPreference(elevation);
     hikeData.distPreference(distance);
+
+    // Sort array of hikes by rating (highest at index 0)
+    // code from https://davidwalsh.name/array-sort
+    sortedHikesArr.sort(function(obj1, obj2) {
+      return obj2.rating - obj1.rating;
+    });
+    console.log(sortedHikesArr);
   }
 
   hikeData.lengthPreference = value => {
@@ -137,6 +145,7 @@
   }
 
   hikeData.elevPreference = value => {
+    console.log('Elevation gain preference:',value)
     if (value === 1) {
       for(var i = 0; i < lengthPrefArr.length; i++) {
         var elevGain = parseInt(lengthPrefArr[i].elevGain);
@@ -180,13 +189,13 @@
   }
 
   hikeData.distPreference = value => {
+    console.log('Distance preference:',value)
     if (currentLocationLat) {
       for(var h = 0; h < elevGainPrefArr.length; h++) {
         var hikeLat = parseFloat(elevGainPrefArr[h].lat);
         var hikeLng = parseFloat(elevGainPrefArr[h].lng);
         var hikeDistance = distance(currentLocationLat, currentLocationLng, hikeLat, hikeLng, 'M');
         elevGainPrefArr[h].distance = hikeDistance;
-        console.log('User Location',hikeDistance);
       }
     } else {
       for(var i = 0; i < elevGainPrefArr.length; i++) {
@@ -194,7 +203,6 @@
         hikeLng = parseFloat(elevGainPrefArr[i].lng);
         hikeDistance = distance(codeFellowsLat, codeFellowsLng, hikeLat, hikeLng, 'M');
         elevGainPrefArr[i].distance = hikeDistance;
-        console.log('Code Fellows',hikeDistance);
       }
     }
 
@@ -233,63 +241,33 @@
         }
       }
     }
-
-    // Sort array of hikes by rating (highest at index 0)
-    // code from https://davidwalsh.name/array-sort
-    sortedHikesArr.sort(function(obj1, obj2) {
-      return obj2.rating - obj1.rating;
-    });
-    console.log(sortedHikesArr);
   }
 
-  /* DISPLAY RESULTS ON HIKE-RESULTS.HTML */
-  function renderBGImage() {
-    document.getElementById('hike-results').style.backgroundImage = 'url(img/' + chosenImg.filepath + ')';
-    document.getElementById('hike-results').style.width = '100%';
+  /* RENDER RESULTS */
+  // Render main hike
+  hikeData.renderMainHike = () => {
+    let hikeName = sortedHikesArr[0].name;
+    let hikeRating = sortedHikesArr[0].rating;
+    let hikeLength = sortedHikesArr[0].length;
+    let hikeElev = sortedHikesArr[0].elevGain;
+    let hikeURL = 'http://www.wta.org/go-hiking/hikes/' + sortedHikesArr[0].id;
+
+    $('#main-hike-ul').append(`<li>Hike Name: ${hikeName}</li>`)
+    $('#main-hike-ul').append(`<li>Rating: ${hikeRating}</li>`)
+    $('#main-hike-ul').append(`<li>Length: ${hikeLength}</li>`)
+    $('#main-hike-ul').append(`<li>Elevation Gain: ${hikeElev}</li>`)
+    $('#main-hike-ul').append(`<li>Read more on the WTA Website: <span><a href="${hikeURL}" target="_blank">${hikeURL}</a></span></li>`)
   }
 
-  // render main hike (sortedHikesArr - index 0)
-  function renderMainHike() {
-    var hikeName = sortedHikesArr[0].name;
-    var hikeRating = sortedHikesArr[0].rating;
-    var hikeLength = sortedHikesArr[0].length;
-    var hikeElev = sortedHikesArr[0].elevGain;
-    var hikeURL = 'http://www.wta.org/go-hiking/hikes/' + sortedHikesArr[0].id;
-
-    var mainHikeList = document.getElementById('main-hike-ul');
-    var liEl = document.createElement('li');
-    liEl.textContent = 'Hike Name: ' + hikeName;
-    mainHikeList.appendChild(liEl);
-
-    liEl = document.createElement('li');
-    liEl.textContent = 'Rating: ' + hikeRating;
-    mainHikeList.appendChild(liEl);
-
-    liEl = document.createElement('li');
-    liEl.textContent = 'Length: ' + hikeLength + ' miles';
-    mainHikeList.appendChild(liEl);
-
-    liEl = document.createElement('li');
-    liEl.textContent = 'Elevation Gain: ' + hikeElev + ' ft.';
-    mainHikeList.appendChild(liEl);
-
-    liEl = document.createElement('li');
-    liEl.innerHTML = 'Read more on the WTA Website: <span><a href="' + hikeURL + '" target="_blank">' + hikeURL + '</span></a>';
-    mainHikeList.appendChild(liEl);
-  }
-
-  // render list of hikes
-  function renderHikeList() {
-    var hikeList = document.getElementById('list-hike-ul');
-
+  // Render list of hikes
+  hikeData.renderHikeList = () => {
     for(var i = 1; i < 11; i++) {
-      var hikeURL = 'http://www.wta.org/go-hiking/hikes/' + sortedHikesArr[i].id;
-      console.log(sortedHikesArr[i].id,hikeURL);
+      let hikeURL = 'http://www.wta.org/go-hiking/hikes/' + sortedHikesArr[i].id;
 
-      var liEl = document.createElement('li');
-      liEl.innerHTML = '<span><a href="' + hikeURL + '"target="_blank">' + sortedHikesArr[i].name + '</a></span>' + ', ' + sortedHikesArr[i].rating + ' rating, ' + sortedHikesArr[i].length + ' miles, ' + sortedHikesArr[i].elevGain + ' ft. elevation gain';
-      liEl.setAttribute('class','hike-list-li');
-      hikeList.appendChild(liEl);
+      let liEl = `<li><span><a href="${hikeURL}" target="_blank">${sortedHikesArr[i].name}</a></span>, ${sortedHikesArr[i].rating} rating, ${sortedHikesArr[i].length} miles, ${sortedHikesArr[i].elevGain} ft. elevation gain</li>`
+      
+      // liEl.setAttribute('class','hike-list-li');
+      $('#list-hike-ul').append(liEl);
     }
   }
 

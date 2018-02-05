@@ -1,0 +1,8 @@
+main {
+  width: 400px;
+  background-color: #999;
+}
+
+.clearfix {
+  clear: both;
+}

@@ -12,7 +12,12 @@
     next();
   }
 
-  $('#index a').on('click', function(){
+  $('header img').on('click', function(e) {
+    e.preventDefault();
+    $('header ul').toggleClass('show-ul');
+  })
+
+  $('#index a').on('click', function() {
     console.log('Get location function');
     window.hikeData.getLocation();
   })

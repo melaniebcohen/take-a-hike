@@ -1,0 +1,46 @@
+/* Header */
+.container {
+  width: 100%;
+}
+.col-1 {
+  display: inline-block;
+  width: 2%;
+}
+.col-1-header {
+  display: inline-block;
+  width: 45%;
+  font-family: 'Lobster';
+  font-size: 8vw;
+}
+.col-1-menu {
+  display: inline-block;
+  width: 45%;
+}
+header img {
+  float: right;
+}
+.col-2 {
+  display: inline-block;
+  width: 2%;
+  border: 1px blue solid;
+}
+.col-2-menu {
+  width: 90%;
+  display: inline-block;
+}
+.col-2-menu ul {
+  float: right;
+  text-align: right;
+}
+header ul {
+  display: none;
+}
+.show-ul {
+  display: block;
+  clear: both;
+}
+
+/* Body */
+main {
+  clear: both;
+}

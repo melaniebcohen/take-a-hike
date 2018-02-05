@@ -1,5 +1,4 @@
-[
-  {
+let hikes = JSON.stringify([{
   "rating": "0.0",
   "length": "14.0",
   "kml": "",
@@ -26795,4 +26794,4 @@
   "elevGain": 100.0,
   "id": "rainier-trail-issaquah",
   "elevMax": 250.0
-}]
+}])

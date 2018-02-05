@@ -9,7 +9,8 @@
     $('#find-hike').hide();
     $('#hike-results').show();
 
-    next();
+    window.hikeData.renderMainHike();
+    window.hikeData.renderHikeList();
   }
 
   module.hikeResultsView = hikeResultsView;

@@ -28,7 +28,7 @@ form button {
   margin: 3% 0 3% 0;
   padding: 2%;
 }
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 500px) {
   #find-hike-form {
     margin-top: 7%;
     background: rgba(255, 255, 255, 0.8);

@@ -1,7 +1,6 @@
 <!-- TO DO:
 - background images
 - desktop view
-- hamburger menu
 -->
 <!DOCTYPE html>
 <html>
@@ -15,6 +14,7 @@
     <link rel="stylesheet" type="text/css" href="styles/modules/findHike.css">
     <link rel="stylesheet" type="text/css" href="styles/modules/hikeResults.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster|Raleway:300,400">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
   </head>
   <body>
     <header>
@@ -24,14 +24,20 @@
           <h1>Take A Hike</h1>
         </div>
         <div class="col-1-menu">
-          <a href="#"><img src="images/hamburger.png"></a>
+          <a id="burger" href="#"><i class="fas fa-bars"></i></a>
+          <div class="col-2-menu-1">
+            <ul id="desktop">
+              <li><a href="/findahike">Find A Hike</a></li>
+              <li><a href="/">Home</a></li>
+            </ul>
+          </div>    
         </div>
         <div class="col-1"></div>
       </div>
       <div class="container" id="container-2">
         <div class="col-2"></div>
         <div class="col-2-menu">
-          <ul>
+          <ul id="mobile">
             <li><a href="/findahike">Find A Hike</a></li>
             <li><a href="/">Home</a></li>
           </ul>

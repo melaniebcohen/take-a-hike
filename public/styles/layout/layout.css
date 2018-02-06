@@ -22,7 +22,6 @@ header img {
 .col-2 {
   display: inline-block;
   width: 2%;
-  border: 1px blue solid;
 }
 .col-2-menu {
   width: 90%;

@@ -9,6 +9,8 @@
     $('#no-results').hide()
     $('#index').show();
 
+    $('body').css('background-image', 'url(images/img14.jpg)');
+
     next();
   }
 
@@ -20,8 +22,6 @@
   $('#index a').on('click', function() {
     console.log('Get location function');
     window.hikeData.getLocation();
-
-    $('body').css('background-image', 'url(images/img13.jpg)');
   })
 
 

@@ -9,6 +9,8 @@
     $('#index').hide();
     $('#find-hike').show();
 
+    $('body').css('background-image', 'url(images/img13.jpg)');
+
     $('form').on('submit', function(e) {
       e.preventDefault();
 

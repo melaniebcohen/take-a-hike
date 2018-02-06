@@ -18,12 +18,16 @@
   width: 30%;
   margin-top: 1%;
 }
-header img {
+.fa-bars {
+  font-size: 6vw;
   float: right;
 }
 .col-2 {
   display: inline-block;
   width: 5%;
+}
+.col-2-menu-1 {
+  display: none;
 }
 .col-2-menu {
   width: 90%;
@@ -32,12 +36,10 @@ header img {
 .col-2-menu ul {
   float: right;
   text-align: right;
-}
-header ul {
   display: none;
 }
 .show-ul {
-  display: block;
+  display: block !important;
   clear: both;
 }
 header a {
@@ -47,14 +49,36 @@ header a {
 header li:last-child {
   margin-top: 5%;
 }
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 500px) {
+  body {
+    background-size: cover;
+  }
   .col-1-header {
     font-size: 5vw;
   }
-  header img {
+  .fa-bars {
     display: none;
   }
-  header ul {
+  #mobile {
+    display: none;
+  }
+  .col-1-header {
+    width: 50%
+  }
+  .col-1-menu {
+    width: 40%;
+  }
+  .col-2-menu-1 {
     display: block;
+    float: right;
+    width: 100%;
+    text-align: right;
+    font-size: 2.5vw;
+  }
+  #desktop li {
+    display: inline; 
+  }
+  #desktop li:first-child {
+    margin: 0 5% 0 20%;
   }
 }

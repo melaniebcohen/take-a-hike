@@ -1,0 +1,19 @@
+.col-3 {
+  display: inline-block;
+  width: 20%;
+}
+
+.col-3-find-hike {
+  display: inline-block;
+  width: 60%;
+}
+
+#find-hike-form {
+  background: #FFF;
+  border-radius: 1%;
+}
+
+form label {
+  display: block;
+  font-size: 5vw;
+}

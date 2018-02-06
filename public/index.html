@@ -1,3 +1,8 @@
+<!-- TO DO:
+- background images
+- desktop view
+- hamburger menu
+-->
 <!DOCTYPE html>
 <html>
   <head>
@@ -6,7 +11,9 @@
     <link rel="stylesheet" type="text/css" href="styles/vendor/reset.css">
     <link rel="stylesheet" type="text/css" href="styles/base/base.css">
     <link rel="stylesheet" type="text/css" href="styles/layout/layout.css">
+    <link rel="stylesheet" type="text/css" href="styles/modules/index.css">
     <link rel="stylesheet" type="text/css" href="styles/modules/findHike.css">
+    <link rel="stylesheet" type="text/css" href="styles/modules/hikeResults.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster|Raleway:300,400">
   </head>
   <body>
@@ -21,7 +28,7 @@
         </div>
         <div class="col-1"></div>
       </div>
-      <div class="container">
+      <div class="container" id="container-2">
         <div class="col-2"></div>
         <div class="col-2-menu">
           <ul>
@@ -34,19 +41,17 @@
     </header>
     <main>
       <section id="index">
-        <div class="main-body">
-          <div class="column-1"></div>
-            <div class="transparent-div">
-              <p>Search for hikes based on your preferences:</p>
-              <a href="/findahike"><button id="main-button">Find A Hike</button></a>
-            </div>
-          <div class="column-2"></div>
-        </div>      
+        <div class="col-3"></div>
+        <div class="col-3-content">
+            <p>Search for hikes based on your preferences:</p>
+            <a href="/findahike"><button id="main-button">Find A Hike</button></a>
+        </div>
+        <div class="col-3"></div>
       </section>
 
       <section id="find-hike">
-        <div class="col-3"></div>
-        <div class="col-3-find-hike">
+        <div class="col-4"></div>
+        <div class="col-4-find-hike">
           <form id="find-hike-form">
             <fieldset>
               <label for="length">Hike Length</label>
@@ -75,27 +80,28 @@
             <button type="submit" id="submit-btn">Find a Hike</button>
           </form>
         </div>
-        <div class="col-3"></div>
+        <div class="col-4"></div>
       </section>
 
       <section id="hike-results">
-        <div id="main">
-          <div id="main-hike">
-              <div class="transparent-box">
-                <div class="main-hike-text">
-                  <h1 id="main-hike-header">Your Best Match:</h1>
-                  <ul id="main-hike-ul"></ul>
-                </div>
-              </div>
+        <div id="container-1">
+          <div class="col-5"></div>
+          <div class="col-5-content" id="main-hike">
+            <h2 id="main-hike-header">Your Best Match:</h2>
+            <ul id="main-hike-ul"></ul>
           </div>
-            <div id="list-hike">
-              <div class="transparent-box2">
-                <h2 id="list-hike-header">Other hikes that match your criteria:</h2>
-                <ul id="list-hike-ul">
-                </ul>
-              </div>
-          </div>
+          <div class="col-5"></div>
         </div>
+
+        <div id="container-2">
+          <div class="col-5"></div>
+          <div class="col-5-content" id="list-hike">
+            <h2 id="list-hike-header">Other hikes that match your criteria:</h2>
+            <ul id="list-hike-ul"></ul>
+          </div>
+          <div class="col-5"></div>
+        </div>
+  
       </section>
 
       <section id="no-results">

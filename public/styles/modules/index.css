@@ -1,0 +1,27 @@
+.col-3 {
+  display: inline-block;
+  width: 11%;
+}
+.col-3-content {
+  display: inline-block;
+  width: 70%;
+  margin-top: 10%;
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: .5%;
+  text-align: center;
+  padding: 2%;
+}
+.col-3-content p {
+  display: block;
+  font-size: 4.0vw;
+  margin: 3% 0 2% 0;
+}
+#index button {
+  margin: 3% 0 3% 0;
+  padding: 2%;
+}
+@media screen and (min-width: 600px) {
+  .col-3-content p {
+    font-size: 3vw;
+  }
+}

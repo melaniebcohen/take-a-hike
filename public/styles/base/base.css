@@ -2,13 +2,18 @@ html, body {
   height: 100%;
   font-family: 'Avenir';
 }
-
 body {
-  width: 400px;
   background-repeat: no-repeat;
   background-size: auto 100%;
 }
-
 .clearfix {
   clear: both;
+}
+button {
+  border: none;
+  background:#263F59;
+  color: #FFF;
+  font-family: 'Avenir';
+  font-size: 3vw;
+  border-radius: .5%;
 }

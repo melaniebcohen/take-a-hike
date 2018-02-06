@@ -13,42 +13,6 @@
   let elevGainPrefArr = [];
   let sortedHikesArr = [];
 
-  Image.allImages = [];
-
-  function Image(filepath) {
-    this.filepath = filepath;
-    Image.allImages.push(this);
-  }
-
-  function allNewImages() {
-    new Image ('img6.jpg');
-    new Image ('img7.jpg');
-    new Image ('img8.jpg');
-    new Image ('img9.jpg');
-    new Image ('img10.jpg');
-    new Image ('img11.jpg');
-    new Image ('img14.jpg');
-  }
-  allNewImages();
-
-  function generateRandomImg() {
-    var index = Math.floor(Math.random() * (Image.allImages.length));
-    var randomImg = Image.allImages[index];
-    return randomImg;
-  }
-
-  var chosenImg = generateRandomImg();
-
-  function renderImage() {
-    var displayImage = document.getElementById('random-image');
-    displayImage.setAttribute('src', 'img/' + chosenImg.filepath);
-  }
-
-  function renderBGImage() {
-    document.getElementById('hike-results').style.backgroundImage = 'url(img/' + chosenImg.filepath + ')';
-    document.getElementById('hike-results').style.width = '100%';
-  }
-
   //from https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/Using_geolocation
   hikeData.getLocation = () => {
     if ('geolocation' in navigator) {

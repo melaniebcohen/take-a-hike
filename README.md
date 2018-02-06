@@ -2,7 +2,7 @@
 #### Revised Code Fellows 201 Final Project
 
 ## Overview
-Code forked and updated from original [Take A Hike](https://github.com/melaniebcohen/cf-201-finalproject) project.
+Code updated from original [Take A Hike](https://github.com/melaniebcohen/cf-201-finalproject) project.
 
 ## Architecture
 

@@ -20,10 +20,8 @@
   })
 
   $('#index a').on('click', function() {
-    console.log('Get location function');
     window.hikeData.getLocation();
   })
-
 
   module.indexView = indexView;
 

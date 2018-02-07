@@ -1,10 +1,7 @@
-<!-- TO DO:
-- background images
-- desktop view
--->
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width">
     <title>Take A Hike</title>
     <link rel="stylesheet" href="vendor/air-slider.min.css">
     <link rel="stylesheet" type="text/css" href="styles/vendor/reset.css">
@@ -18,32 +15,28 @@
   </head>
   <body>
     <header>
-      <div class="container">
-        <div class="col-1"></div>
-        <div class="col-1-header">
-          <h1>Take A Hike</h1>
-        </div>
-        <div class="col-1-menu">
-          <a id="burger" href="#"><i class="fas fa-bars"></i></a>
-          <div class="col-2-menu-1">
-            <ul id="desktop">
-              <li><a href="/findahike">Find A Hike</a></li>
-              <li><a href="/">Home</a></li>
-            </ul>
-          </div>    
-        </div>
-        <div class="col-1"></div>
+      <div>
+        <p>Take A Hike</p>
       </div>
-      <div class="container" id="container-2">
-        <div class="col-2"></div>
-        <div class="col-2-menu">
-          <ul id="mobile">
+      <div>
+        <nav id="header-fixed">
+          <ul>
+            <li><a href="#">About</a></li>
             <li><a href="/findahike">Find A Hike</a></li>
             <li><a href="/">Home</a></li>
           </ul>
-        </div>
-        <div class="col-2"></div>
+        </nav>
+        <nav id="header-collapsed">
+          <a id="burger" href="#"><i class="fas fa-bars"></i></a>
+        </nav>
       </div>
+      <div id="menu-items">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/findahike">Find A Hike</a></li>
+            <li><a href="#">About</a></li>
+          </ul>
+        </div>
     </header>
     <main>
       <section id="index">

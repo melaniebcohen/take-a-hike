@@ -4,25 +4,44 @@
 }
 .col-3-content {
   display: inline-block;
-  width: 70%;
-  margin-top: 10%;
   background: rgba(255, 255, 255, 0.75);
   border-radius: .5%;
   text-align: center;
   padding: 2%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-60%);
+  width: 70%;
 }
 .col-3-content p {
   display: block;
-  font-size: 4.0vw;
-  margin: 3% 0 2% 0;
+  font-size: 20px;
+  padding: 0 10px;
+  margin: 20px 20px 15px 20px;
 }
 #index button {
-  margin: 3% 0 3% 0;
-  padding: 2%;
+  margin: 0 0 20px 0;
+  padding: 4% 5%;
+  font-size: 18px;
+  border-radius: 2%;
 }
 @media screen and (min-width: 500px) {
   .col-3-content p {
-    font-size: 3vw;
+    font-size: 22px;
   }
+  #index button {
+    margin: 0 0 20px 0;
+    padding: 3% 5%;
+    font-size: 20px;
+  }  
+@media screen and (min-width: 700px) {
+  .col-3-content p {
+    font-size: 25px;
+  }
+  #index button {
+    margin: 0 0 20px 0;
+    padding: 3% 5%;
+    font-size: 20px;
+  }  
 
 }

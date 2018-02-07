@@ -14,16 +14,14 @@
     next();
   }
 
-  $('header #burger').on('click', function(e) {
+  $('#burger').on('click', function(e) {
     e.preventDefault();
-    $('header #mobile').toggleClass('show-ul');
+    $('#menu-items').toggleClass('dropdown');
   })
 
   $('#index a').on('click', function() {
-    console.log('Get location function');
     window.hikeData.getLocation();
   })
-
 
   module.indexView = indexView;
 

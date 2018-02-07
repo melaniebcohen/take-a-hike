@@ -5,6 +5,12 @@ html, body {
 body {
   background-repeat: no-repeat;
   background-size: auto 100%;
+  min-width: 300px;
+}
+main {
+  top: 75px;
+  bottom: 50px;
+  width: 100%;
 }
 .clearfix {
   clear: both;
@@ -14,6 +20,11 @@ button {
   background:#263F59;
   color: #FFF;
   font-family: 'Avenir';
-  font-size: 3vw;
   border-radius: .5%;
+}
+a {
+  text-decoration: none;
+}
+a:visited {
+  color: #fff;
 }

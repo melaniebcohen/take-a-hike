@@ -5,6 +5,12 @@ header {
 header div {
   display: inline-block;
 }
+header a {
+  color: #FFF;
+}
+header a:visited {
+  color: #FFF;
+}
 header div:first-child {
   display: inline-block;
   width: 60%;

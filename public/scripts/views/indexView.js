@@ -14,9 +14,9 @@
     next();
   }
 
-  $('header #burger').on('click', function(e) {
+  $('#burger').on('click', function(e) {
     e.preventDefault();
-    $('header #mobile').toggleClass('show-ul');
+    $('#menu-items').toggleClass('dropdown');
   })
 
   $('#index a').on('click', function() {

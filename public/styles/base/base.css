@@ -17,3 +17,9 @@ button {
   font-size: 3vw;
   border-radius: .5%;
 }
+a {
+  text-decoration: none;
+}
+a:visited {
+  color: #fff;
+}

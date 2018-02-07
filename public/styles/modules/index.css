@@ -21,10 +21,27 @@
 }
 #index button {
   margin: 0 0 20px 0;
-  padding: 5%;
+  padding: 4% 5%;
+  font-size: 18px;
+  border-radius: 2%;
 }
 @media screen and (min-width: 500px) {
   .col-3-content p {
-    font-size: 3vw;
+    font-size: 22px;
   }
+  #index button {
+    margin: 0 0 20px 0;
+    padding: 3% 5%;
+    font-size: 20px;
+  }  
+@media screen and (min-width: 700px) {
+  .col-3-content p {
+    font-size: 25px;
+  }
+  #index button {
+    margin: 0 0 20px 0;
+    padding: 3% 5%;
+    font-size: 20px;
+  }  
+
 }

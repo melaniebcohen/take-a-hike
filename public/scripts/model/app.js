@@ -234,7 +234,7 @@
   }
 
   hikeData.renderHikeList = () => {
-    for(var i = 1; i < 11; i++) {
+    for(var i = 1; i < 6; i++) {
       let hikeURL = 'http://www.wta.org/go-hiking/hikes/' + sortedHikesArr[i].id;
 
       let liEl = `<li><span><a href="${hikeURL}" target="_blank">${sortedHikesArr[i].name}</a></span>, ${sortedHikesArr[i].rating} rating, ${sortedHikesArr[i].length} miles, ${sortedHikesArr[i].elevGain} ft. elevation gain</li>`

@@ -11,8 +11,7 @@
 
     $('body').css('background-image', 'url(images/img2.jpg)');
 
-    window.hikeData.renderMainHike();
-    window.hikeData.renderHikeList();
+    window.hikeData.renderHikes();
   }
 
   module.hikeResultsView = hikeResultsView;

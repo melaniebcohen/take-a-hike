@@ -43,10 +43,10 @@
     dist = dist * 60 * 1.1515;
     if (unit === 'K') {
       dist = dist * 1.609344;
-    };
+    }
     if (unit === 'N') {
       dist = dist * 0.8684;
-    };
+    }
     return dist;
   }
 
@@ -208,7 +208,17 @@
   }
 
   /* RENDER RESULTS */
-  // Render main hike
+  hikeData.renderHikes = () => {
+    if (sortedHikesArr.length === 0) {
+      hikeData.renderNoHikes();
+      $('#container-1, #container-2').hide();
+    } else {
+      $('#container-3').hide();
+      hikeData.renderMainHike();
+      hikeData.renderHikeList();
+    }
+  }
+
   hikeData.renderMainHike = () => {
     let hikeName = sortedHikesArr[0].name;
     let hikeRating = sortedHikesArr[0].rating;
@@ -223,16 +233,17 @@
     $('#main-hike-ul').append(`<li>Read more on the WTA Website: <span><a href="${hikeURL}" target="_blank">${hikeURL}</a></span></li>`)
   }
 
-  // Render list of hikes
   hikeData.renderHikeList = () => {
     for(var i = 1; i < 11; i++) {
       let hikeURL = 'http://www.wta.org/go-hiking/hikes/' + sortedHikesArr[i].id;
 
       let liEl = `<li><span><a href="${hikeURL}" target="_blank">${sortedHikesArr[i].name}</a></span>, ${sortedHikesArr[i].rating} rating, ${sortedHikesArr[i].length} miles, ${sortedHikesArr[i].elevGain} ft. elevation gain</li>`
-      
-      // liEl.setAttribute('class','hike-list-li');
       $('#list-hike-ul').append(liEl);
     }
+  }
+
+  hikeData.renderNoHikes = () => {
+    console.log('success');
   }
 
   module.hikeData = hikeData;

@@ -33,7 +33,8 @@
     margin: 0 0 20px 0;
     padding: 3% 5%;
     font-size: 20px;
-  }  
+  }
+}
 @media screen and (min-width: 700px) {
   .col-3-content p {
     font-size: 25px;
@@ -42,6 +43,5 @@
     margin: 0 0 20px 0;
     padding: 3% 5%;
     font-size: 20px;
-  }  
-
+  }
 }

@@ -9,7 +9,7 @@
     $('#find-hike').hide();
     $('#hike-results').show();
 
-    $('body').css('background-image', 'url(images/img2.jpg)');
+    $('body').css('background-image', 'url(images/img13.jpg)');
 
     window.hikeData.renderHikes();
   }
